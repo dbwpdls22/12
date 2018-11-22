@@ -1,19 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	char src[100]="Programming course";
-	int i=0;
+	FILE *fp = NULL;
+	char input[100];
+	int i;
 	
-	while(src[i]!=NULL)
+	fp=fopen("sample.txt","w");
+	
+	for(i=0;i<3;i++)
 	{
-		i++;
-	}
+	printf("input a word:");
+	scanf("%s",&input);
+	fprintf(fp,"%s\n",input);
+    }
 	
-	
-	printf("문자열 %s의 길이:%i \n",src,i);
+	fclose(fp);
 	
 	return 0;
 	
